@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.97.253
 
-Frontend https://...
+Frontend https://svetlana.prozhirova.nomoreparties.co/
 
-Backend https://...
+Backend https://api.svetlana.prozhirova.nomoreparties.co/

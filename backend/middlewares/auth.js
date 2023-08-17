@@ -1,8 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const jwt = require('jsonwebtoken');
-const {
-  BadUnAutorized,
-} = require('../errors/index');
+const { BadUnAutorized } = require('../errors/index');
+
 const { JWT_SECRET, NODE_ENV } = process.env;
 
 // eslint-disable-next-line consistent-return

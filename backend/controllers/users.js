@@ -87,7 +87,6 @@ const getUserByID = (req, res) => {
 
 const getUserProfile = (req, res, next) => {
   const { _id } = req.user;
-  console.log(_id);
 
   User.findById(_id)
     .then((user) => res.status(OK).send({ data: user }))

@@ -9,10 +9,11 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { errors } = require('celebrate');
+const cors = require('cors');
 const router = require('./routes/index');
 const errorHandler = require('./middlewares/error-handler');
 // const cors = require('./middlewares/cors');
-const cors = require('cors')
+
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();

@@ -12,6 +12,7 @@ const { errors } = require('celebrate');
 const router = require('./routes/index');
 const errorHandler = require('./middlewares/error-handler');
 const cors = require('cors')
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(requestLogger);
 app.use(helmet());
 
 const limiter = rateLimit({
@@ -45,7 +47,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/mydb', {});
 app.use('/', router);
 
 // обработчик ошибок celebrate
-router.use(errors());
+app.use(errors());
+
+app.use(errorLogger);
 
 // централизованный обработчик ошиибок
 app.use(errorHandler);

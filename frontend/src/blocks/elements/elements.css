@@ -1,0 +1,21 @@
+/*768px --> max_px*/
+.elements {
+  display: grid;
+  column-gap: 17px;
+  row-gap: 20px;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-auto-columns: auto;
+  max-width: 880px;
+  margin:  0 auto;
+  justify-content: center;
+  padding: 51px 0 0;
+}
+
+/*min_px --> 768px*/
+@media screen and (max-width: 768px) {
+  .elements {
+    padding: 36px 0 0;
+    max-width: 282px;
+    /* grid-template-columns: repeat(1, auto); */
+  }
+}

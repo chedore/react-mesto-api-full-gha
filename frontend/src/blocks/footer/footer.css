@@ -1,0 +1,14 @@
+/*768px --> max_px*/
+.footer {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 66px 0 0 0;
+}
+
+/*min_px --> 768px*/
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 48px 0 0 0;
+    max-width: 282px;
+  }
+}

@@ -1,0 +1,15 @@
+/*768px --> max_px*/
+.profile__edit-button {
+  width: 24px;
+  height: 24px;
+  background: rgb(0,0,0, 0) url(../../../images/pen.svg) no-repeat top 50% left 50%;
+  border: 1px solid #FFFFFF;
+}
+
+/*min_px --> 768px*/
+@media screen and (max-width: 768px) {
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+  }
+}

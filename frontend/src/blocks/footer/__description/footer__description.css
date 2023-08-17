@@ -1,0 +1,18 @@
+/*768px --> max_px*/
+.footer__description {
+  margin: 0;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #545454;
+}
+
+
+/*min_px --> 768px*/
+@media screen and (max-width: 768px) {
+  .footer__description {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

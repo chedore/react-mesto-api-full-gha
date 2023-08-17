@@ -1,0 +1,13 @@
+/*768px --> max_px*/
+.profile__info {
+  display: flex;
+  align-items: baseline;
+}
+
+/*min_px --> 768px*/
+@media screen and (max-width: 768px){
+  .profile__info {
+    padding: 26px 0 0;
+    margin: 0 auto;
+  }
+}

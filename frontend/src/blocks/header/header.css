@@ -1,0 +1,19 @@
+/*320px --> ~px*/
+.header {
+  max-width: 880px;
+  margin: 0 auto;
+  z-index: auto;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  padding-bottom: 41px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/*320px*/
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 320px;
+    padding-bottom: 31px;
+  }
+}

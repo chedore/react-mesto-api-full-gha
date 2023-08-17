@@ -1,0 +1,11 @@
+/*768px --> max_px*/
+.button_place_profile {
+  margin-left: auto;
+}
+
+/*min_px --> 768px*/
+@media screen and (max-width: 768px) {
+  .button_place_profile {
+    margin: 36px 0 0;
+  }
+}

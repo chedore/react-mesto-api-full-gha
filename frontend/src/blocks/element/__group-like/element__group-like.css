@@ -1,0 +1,5 @@
+.element__group-like {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}

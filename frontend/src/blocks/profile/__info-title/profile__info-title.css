@@ -1,0 +1,22 @@
+/*768px --> max_px*/
+.profile__info-title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  padding-bottom: 16px;
+  text-overflow: ellipsis;
+  max-width: 294px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/*min_px --> 768px*/
+@media screen and (max-width: 768px) {
+  .profile__info-title {
+    font-size: 27px;
+    line-height: 33px;
+    padding-bottom: 5px;
+    max-width: 189px;
+  }
+}

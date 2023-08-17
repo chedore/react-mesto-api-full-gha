@@ -1,0 +1,14 @@
+.popup__container-tooltip {
+  display: flex;
+  flex-direction: column;
+  max-width: 395px;
+  width: 100%;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 10px;
+  align-items: center;
+  z-index: 1;
+  padding: 60px 36px;
+}

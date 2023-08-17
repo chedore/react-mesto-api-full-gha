@@ -1,0 +1,15 @@
+/*768px --> max_px*/
+.logo {
+  max-height: 33px;
+  max-width: 142px;
+  z-index: auto;
+}
+
+/*min_px --> 768px*/
+@media screen and (max-width: 768px) {
+  .logo {
+    max-height: 25px;
+    max-width: 104px;
+    margin: 0 0 0 27px;
+  }
+}

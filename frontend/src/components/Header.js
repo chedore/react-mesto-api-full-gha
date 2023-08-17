@@ -9,7 +9,6 @@ export default function Header({ loggedIn, email, signOut }) {
   return (
     <header className="header">
       <img className="logo logo_place_header" src={logo} alt="Логотип" />
-      {console.log(location.pathname)}
       {loggedIn ? (
         <div className="header__group">
           <p className="header__email">{email}</p>

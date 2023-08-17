@@ -11,26 +11,30 @@ const helmet = require('helmet');
 const { errors } = require('celebrate');
 const router = require('./routes/index');
 const errorHandler = require('./middlewares/error-handler');
+// const cors = require('./middlewares/cors');
 const cors = require('cors')
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
-const allowedCors = [
-  'https://api.svetlana.prozhirova.nomoreparties.co',
-  'http://api.svetlana.prozhirova.nomoreparties.co',
-  'http://localhost:3000',
-  'http://localhost:3001'
-];
-
-app.use(cors({
-  origin: allowedCors,
-  credentials: true,
-}));
-
 app.use(express.json());
 app.use(requestLogger);
 app.use(helmet());
+// app.use(cors);
+
+// const allowedCors = [
+//   'https://api.svetlana.prozhirova.nomoreparties.co',
+//   'http://api.svetlana.prozhirova.nomoreparties.co',
+//   'http://localhost:3000',
+//   'http://localhost:3001'
+// ];
+
+// app.use(cors({
+//   origin: allowedCors,
+//   credentials: true,
+// }));
+
+app.use(cors());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -42,7 +46,7 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-mongoose.connect('mongodb://127.0.0.1:27017/mydb', {});
+mongoose.connect('mongodb://127.0.0.1:27017/mydb1', {});
 
 app.use('/', router);
 

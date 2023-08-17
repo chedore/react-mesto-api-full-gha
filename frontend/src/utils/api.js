@@ -6,6 +6,13 @@ class Api {
     this._headers = headers;
   }
 
+  setToken(options){
+    if (!options.headers.authorization) {
+      options.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`
+    }
+    return options
+  }
+
   /**Проверить данные от сервера*/
   _checkResponse(res){
     if (res.ok) 
@@ -16,6 +23,7 @@ class Api {
 
   /**Универсальный метод запроса с проверкой ответа*/
   async _request(endpoint, options) {
+    options=this.setToken(options);
     const url = `${this._baseUrl}${endpoint}`
     return await fetch(url, options)
       .then(this._checkResponse)

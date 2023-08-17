@@ -7,8 +7,8 @@ export default function Card({ card, onCardClick, onCardDelete, onCardLike}) {
   const handleLikeClick = () => onCardLike(card);
 
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = card.owner._id === currentUser._id;  // Определяем, являемся ли мы владельцем текущей карточки
-  const isLiked = card.likes.some(i => i._id === currentUser._id); // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
+  const isOwn = card.owner === currentUser._id;  // Определяем, являемся ли мы владельцем текущей карточки
+  const isLiked = card.likes.some(i => i === currentUser._id); // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   const cardLikeButtonClassName = ( `button button_place_element element__info-button ${isLiked && 'element__info-button-active'}`); // Создаём переменную, которую после зададим в `className` для кнопки лайка
 
   return (

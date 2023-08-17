@@ -90,7 +90,7 @@ const getUserProfile = (req, res, next) => {
   console.log(_id);
 
   User.findById(_id)
-    .then((user) => res.status(OK).send(user))
+    .then((user) => res.status(OK).send({ data: user }))
     .catch((err) => next(err));
 };
 

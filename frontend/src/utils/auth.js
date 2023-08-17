@@ -1,4 +1,6 @@
-export const BASE_URL = "https://auth.nomoreparties.co"
+import {apiConfig} from "./constants.js"
+// export const BASE_URL = "https://auth.nomoreparties.co"
+export const BASE_URL = apiConfig.authUrl
 
 function checkResponse(res) {
   if(res.ok) {
@@ -29,6 +31,7 @@ export const authorize = (password, email) => {
 }
 
 export const authentication = (token) => {
+  console.log(token);
   return request (
     '/users/me',
     {method: 'GET', headers: {"Content-Type": "application/json", "Authorization" : `Bearer ${token}`}}

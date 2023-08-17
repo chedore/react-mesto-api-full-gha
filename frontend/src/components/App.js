@@ -40,7 +40,7 @@ function App() {
       // Передаём массив с промисами методу Promise.all
       Promise.all(promises)
         .then(([user, cards]) => {
-          setCurrentUser(user);
+          setCurrentUser(user.data);
           setCards(cards);
         })
         .catch((error) => alert(error));
@@ -73,13 +73,13 @@ function App() {
       .catch((error) => alert(error));
   }
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     if (!isLiked) {
       api
         .setLikeUp(card._id)
         .then((newCard) => {
           setCards((state) =>
-            state.map((c) => (c._id === card._id ? newCard : c))
+            state.map((c) => (c._id === card._id ? newCard.data : c))
           );
         })
         .catch((error) => alert(error));
@@ -88,7 +88,7 @@ function App() {
         .setLikeDown(card._id)
         .then((newCard) => {
           setCards((state) =>
-            state.map((c) => (c._id === card._id ? newCard : c))
+            state.map((c) => (c._id === card._id ? newCard.data : c))
           );
         })
         .catch((error) => alert(error));
@@ -116,7 +116,7 @@ function App() {
     api
       .addNewCard(card)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch((error) => alert(error));
@@ -134,6 +134,7 @@ function App() {
       auth
         .authentication(jwt)
         .then((res) => {
+          console.log(res.data)
           setLoggedIn(true);
           setEmail(res.data.email);
           navigate("/");

@@ -14,16 +14,6 @@ const errorHandler = require('./middlewares/error-handler');
 const cors = require('cors')
 
 const app = express();
-app.use(express.json());
-app.use(helmet());
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-  // store: ... , // Use an external store for more precise rate limiting
-});
 
 const allowedCors = [
   'https://api.svetlana.prozhirova.nomoreparties.co',
@@ -36,6 +26,17 @@ app.use(cors({
   origin: allowedCors,
   credentials: true,
 }));
+
+app.use(express.json());
+app.use(helmet());
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  // store: ... , // Use an external store for more precise rate limiting
+});
 
 app.use(limiter);
 

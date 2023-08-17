@@ -32,16 +32,10 @@ const allowedCors = [
   'http://localhost:3001'
 ];
 
-app.use(function(req, res, next) {
-  const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
-  // проверяем, что источник запроса есть среди разрешённых 
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin: *');
-    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-  }
-  next();
-});
+app.use(cors({
+  origin: allowedCors,
+  credentials: true,
+}));
 
 app.use(limiter);
 

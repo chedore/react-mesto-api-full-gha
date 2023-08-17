@@ -48,6 +48,12 @@ app.use(limiter);
 
 mongoose.connect('mongodb://127.0.0.1:27017/mydb1', {});
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадет');
+  }, 0);
+});
+
 app.use('/', router);
 
 // обработчик ошибок celebrate

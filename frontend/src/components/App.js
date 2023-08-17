@@ -97,8 +97,8 @@ function App() {
   function handleUpdateUser(data) {
     api
       .setInfolUser(data)
-      .then((res) => {
-        setCurrentUser(res);
+      .then((user) => {
+        setCurrentUser(user.data);
         closeAllPopups();
       })
       .catch((error) => alert(error));
@@ -106,8 +106,8 @@ function App() {
   function handleUpdateAvatar(data) {
     api
       .setUserAvatar(data.avatar)
-      .then((res) => {
-        setCurrentUser(res);
+      .then((user) => {
+        setCurrentUser(user.data);
         closeAllPopups();
       })
       .catch((error) => alert(error));
@@ -134,7 +134,6 @@ function App() {
       auth
         .authentication(jwt)
         .then((res) => {
-          console.log(res.data)
           setLoggedIn(true);
           setEmail(res.data.email);
           navigate("/");

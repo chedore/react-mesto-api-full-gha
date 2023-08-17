@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const {
   BadUnAutorized,
 } = require('../errors/index');
+const { JWT_SECRET, NODE_ENV } = process.env;
 
 // eslint-disable-next-line consistent-return
 const auth = (req, res, next) => {
@@ -18,7 +19,7 @@ const auth = (req, res, next) => {
 
   try {
     // eslint-disable-next-line no-unused-vars
-    payload = jwt.verify(token, 'some-secret-key');
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key');
   } catch (err) {
     next(new BadUnAutorized('Необходима авторизация'));
     return;
